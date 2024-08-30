@@ -1,8 +1,12 @@
-FROM python:3.9
-RUN apt-get update -y && apt-get upgrade -y \
+FROM nikolaik/python-nodejs:python3.10-nodejs19
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends ffmpeg \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
 COPY . /app/
 WORKDIR /app/
-RUN pip3 install requirement.txt
+RUN pip3 install --no-cache-dir -U -r requirements.txt
+
 CMD python3 main.py
