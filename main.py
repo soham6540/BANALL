@@ -1,7 +1,7 @@
 import os
 import logging
 from os import getenv
-from pyrogram import Client, filters, idle
+from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import ChatAdminRequired
 
@@ -59,6 +59,6 @@ async def banall_command(client, message: Message):
     
 
 # start bot client
-app.start()
+app.run()
 print("Banall-Bot Booted Successfully")
-idle()
+
